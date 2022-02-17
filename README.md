@@ -28,6 +28,7 @@ Sistema para criar pautas, computar e apurar votos de associados de uma cooperat
    logo, tem que ser colocado o token recebido no endpoint de login em todas as outras requisições.
    
    https://documenter.getpostman.com/view/6528201/UVkiTeP9
+   
    https://www.getpostman.com/collections/d6409ffb23d8f87c0895
    
 
