@@ -6,6 +6,7 @@ import br.com.forja.bits.donation.model.requests.LoginRequest;
 import br.com.forja.bits.donation.model.requests.RegisterRequest;
 import br.com.forja.bits.donation.model.response.EntityResponses;
 import br.com.forja.bits.donation.model.response.LoginResponse;
+import br.com.forja.bits.donation.model.response.Response;
 import br.com.forja.bits.donation.repositories.UserRepository;
 import br.com.forja.bits.donation.utils.Env;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.UUID;
+
+import static br.com.forja.bits.donation.utils.Messages.*;
 
 @Service
 public class UserService {
@@ -38,7 +41,7 @@ public class UserService {
     public ResponseEntity findById(Integer id) {
         User user = this.findUserById(id);
 
-        return new EntityResponses().ok(user.converToResponse());
+        return new EntityResponses().ok(user.convertToResponse());
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -46,14 +49,15 @@ public class UserService {
         try {
 
             if (userRepository.findByUsername(registerRequest.getUsername()).isPresent())
-               return new EntityResponses().conflict("Email already in use");
+                return new Response(EMAIL_ALREADY_IN_USE).conflict();
 
             User user = configUser(registerRequest);
             User savedUser = userRepository.save(user);
 
-            return new EntityResponses().created(savedUser.converToCreationResponse());
+            return new Response(savedUser.convertToResponse(), USER_CREATED).created();
+
         } catch (Exception e) {
-            return new EntityResponses().buildError("failt to save User");
+            return new Response(FAIL_TO_SAVE_USER).badRequest();
         }
 
     }
@@ -71,7 +75,7 @@ public class UserService {
             return new EntityResponses().buildError("JWT inválido");
 
         // Return userResponse
-        return new EntityResponses().ok(findUserById(user.getId()).converToResponse());
+        return new EntityResponses().ok(findUserById(user.getId()).convertToResponse());
     }
 
     public ResponseEntity authenticate(LoginRequest loginRequest) {

@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.*;
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
@@ -19,27 +20,6 @@ public class RegisterRequest {
 
     @NotNull
     @NotBlank
-    @Min(6)
     private String password;
-
-//    @NotNull
-//    @NotBlank
-////    @Pattern(regexp = "[+][0-9]{1,3}")
-//    private String ddi;
-//
-//    @NotNull
-//    @NotBlank
-////    @Pattern(regexp = "[0-9]{8,12}", message = "invalid phone")
-//    private String phone;
-
-    @NotNull
-    @NotBlank
-    @Pattern(regexp = "(?i)([a-zà-ú]{2,30})", message = "invalid first name")
-    private String firstName;
-
-    @NotNull
-    @NotBlank
-    @Pattern(regexp = "(?i)([a-zà-ú]{2,30})", message = "invalid last name")
-    private String lastName;
 
 }

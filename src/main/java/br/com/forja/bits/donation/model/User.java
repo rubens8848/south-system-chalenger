@@ -26,15 +26,9 @@ public class User implements UserDetails {
 
     @Column(unique = true)
     private String username;
-    private String firstName;
-    private String LastName;
     private String password;
     private String uuid;
     private Date createdAt;
-    private boolean haveDeposits;
-    private boolean validatedEmail;
-    private boolean validatedDocuments;
-    private String image;
 
     @Builder.Default
     private boolean accountNonLocked = true;
@@ -59,18 +53,10 @@ public class User implements UserDetails {
         return map;
     }
 
-    public HashMap<String, Object> converToResponse() {
+    public HashMap<String, Object> convertToResponse() {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("name", this.getFullName());
         map.put("username", this.username);
-        map.put("image", this.image);
-        map.put("validatedDocuments", this.validatedDocuments);
-        map.put("validatedEmail", this.validatedEmail);
         return map;
-    }
-
-    public String getFullName() {
-        return this.firstName + " " + this.getLastName();
     }
 
 }
