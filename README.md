@@ -26,8 +26,8 @@ Sistema para criar pautas, computar e apurar votos de associados de uma cooperat
 - a documentação pode ser acessada pelo link abaixo assim que a api estiver em execução:
     http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
  
- - para auxiliar os testes da API, foi criado uma coleção do postman, lembrando que além dos end-poins de cadastro e login o usuário deve estar autenticado, 
-   logo, tem que ser colocado o token recebido no endpoint de login em todas as outras requisições.
+ - para auxiliar os testes da API, foi criado uma coleção do postman, lembrando que exceto os end-poins de cadastro e login o usuário deve estar autenticado, 
+   logo, deve ser colocado o token recebido no endpoint de login em todas as outras requisições.
    
    https://documenter.getpostman.com/view/6528201/UVkiTeP9
    
