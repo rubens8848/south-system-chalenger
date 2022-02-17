@@ -14,7 +14,7 @@ Sistema para criar pautas, computar e apurar votos de associados de uma cooperat
 - criar o tópico agenda
 - OBS: sem as duas dependencias acima descritas o projeto ainda sim irá rodar e funcionar, porém a comunicação da mensageria será falaha
 
--configurar o banco local no application.properties
+- configurar o banco local no application.properties
 
 # Tecnologias utilizadas
 - Spring Framework 
