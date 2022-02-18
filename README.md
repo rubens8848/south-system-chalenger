@@ -12,7 +12,7 @@ Sistema para criar pautas, computar e apurar votos de associados de uma cooperat
 
 - ter o kafka rodando na porta 9092
 - criar o tópico agenda
-- OBS: sem as duas dependencias acima descritas o projeto ainda sim irá rodar e funcionar, porém a comunicação da mensageria será falaha
+- OBS: sem as duas dependencias acima descritas o projeto ainda sim irá rodar e funcionar, porém a comunicação da mensageria será falha
 
 - configurar o banco local no application.properties
 
